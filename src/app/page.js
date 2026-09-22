@@ -1,4 +1,6 @@
+"use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import promo1 from "./images/promo1.png";
@@ -34,75 +36,105 @@ const especialidades = [
 ];
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main>
-      {/* Navegación principal */}
       {/* NAVIGATION */}
-<header className="sticky top-0 z-50 border-b border-[#E8DFD3] bg-[#FEF8F4]/95 backdrop-blur">
-  <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-4 md:px-6 lg:px-12">
+            {/* NAVIGATION */}
+      <header className="sticky top-0 z-50 border-b border-[#E8DFD3]">
+        <div className="absolute inset-0 -z-10 bg-[#FEF8F4]/95 backdrop-blur pointer-events-none" />
 
-    {/* LOGO */}
-    <a
-      href="./"
-      className="flex items-center gap-3"
-    >
-      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F3ECE2] text-xl">
-        🍲
-      </span>
+        <div className="relative mx-auto flex max-w-[1280px] items-center justify-between px-4 py-4 md:px-6 lg:px-12">
 
-      <div className="flex flex-col leading-none">
-        <span className="font-[family-name:var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.15em] text-[#8F6F6C]">
-          Fonda
-        </span>
+          {/* LOGO */}
+          <Link href="./" className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F3ECE2] text-xl">
+              🍲
+            </span>
 
-        <span className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold text-[#93000B]">
-          Doña Carmen
-        </span>
-      </div>
-    </a>
+            <div className="flex flex-col leading-none">
+              <span className="font-[family-name:var(--font-body)] text-[10px] font-semibold uppercase tracking-[0.15em] text-[#8F6F6C]">
+                Fonda
+              </span>
 
-    {/* MENU */}
-    <nav className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.08em] text-[#5B403D] md:flex">
+              <span className="mt-1 font-[family-name:var(--font-display)] text-xl font-semibold text-[#93000B]">
+                Doña Carmen
+              </span>
+            </div>
+          </Link>
 
-      <a
-        href="./"
-        className="transition hover:text-[#B91C1C]"
-      >
-        Inicio
-      </a>
+          {/* MENÚ DESKTOP */}
+          <nav className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.08em] text-[#5B403D] md:flex">
+            <Link href="./" className="transition hover:text-[#B91C1C]">
+              Inicio
+            </Link>
+            <Link href="./Menu" className="transition hover:text-[#B91C1C]">
+              Menú
+            </Link>
+            <Link href="./QS" className="transition hover:text-[#B91C1C]">
+              Quiénes somos
+            </Link>
+            <Link href="./#ubicacion" className="transition hover:text-[#B91C1C]">
+              Ubicación
+            </Link>
+          </nav>
 
-      <a
-        href="./Menu"
-        className="text-[#B91C1C]"
-      >
-        Menú
-      </a>
+          {/* BOTÓN MÓVIL */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E8DFD3] bg-[#FEF8F4] text-2xl text-[#93000B] md:hidden"
+            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
 
-      <a
-        href="./QS"
-        className="transition hover:text-[#B91C1C]"
-      >
-        Quiénes somos
-      </a>
-
-      <a
-        href="./#ubicacion"
-        className="transition hover:text-[#B91C1C]"
-      >
-        Ubicación
-      </a>
-
-    </nav>
-  </div>
-</header>
-
+          {/* MENÚ MÓVIL (único) */}
+          {menuOpen && (
+            <div className="absolute left-0 right-0 top-full z-[100] border-t border-[#E8DFD3] bg-[#FEF8F4] shadow-lg md:hidden">
+              <nav className="px-4 py-4">
+                <div className="flex flex-col gap-1">
+                  <Link
+                    href="./"
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+                  >
+                    Inicio
+                  </Link>
+                  <Link
+                    href="./Menu"
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+                  >
+                    Menú
+                  </Link>
+                  <Link
+                    href="./QS"
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+                  >
+                    Quiénes somos
+                  </Link>
+                  <Link
+                    href="./#ubicacion"
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+                  >
+                    Ubicación
+                  </Link>
+                </div>
+              </nav>
+            </div>
+          )}
+        </div>
+      </header>
       {/* Hero principal */}
       <section id="inicio" className="hero">
         <div className="hero-overlay">
           <div className="hero-content">
-            <span className="eyebrow">
-              ✦ Cocina tradicional mexicana
-            </span>
+            <span className="eyebrow">✦ Cocina tradicional mexicana</span>
 
             <h1>
               El auténtico
@@ -110,9 +142,7 @@ export default function Home() {
               sabor del hogar
             </h1>
 
-            <p className="hero-slogan">
-              en cada cazuela
-            </p>
+            <p className="hero-slogan">en cada cazuela</p>
 
             <p className="hero-description">
               En Fonda Doña Carmen, cada platillo se prepara
@@ -175,9 +205,7 @@ export default function Home() {
           <div>
             <span className="section-label">✦ El sabor de la casa</span>
             <h2>Promociones del dia</h2>
-            <p>
-            Descubre nuestras promociones especiales del día.
-            </p>
+            <p>Descubre nuestras promociones especiales del día.</p>
           </div>
 
           <Link href="#menu-completo" className="text-link">
@@ -195,11 +223,7 @@ export default function Home() {
                   width={400}
                   height={300}
                 />
-                  <span className="food-tag">{platillo.etiqueta}</span>
-                
-                <span className="food-tag">
-                  {platillo.etiqueta}
-                </span>
+                <span className="food-tag">{platillo.etiqueta}</span>
               </div>
 
               <div className="food-card-body">
@@ -252,15 +276,13 @@ export default function Home() {
           </p>
 
           <div className="quote">
-            <span>“</span>
-            <p>
-              Donde su sazón da alegría.
-            </p>
+            <span>&ldquo;</span>
+            <p>Donde su sazón da alegría.</p>
           </div>
         </div>
       </section>
 
-      <br></br>
+      <br />
 
       {/* Ubicación */}
       <section id="ubicacion" className="location-section">
@@ -308,22 +330,21 @@ export default function Home() {
           </a>
         </div>
 
-        
-          <div className="map-placeholder">
-                <iframe
-                src="https://maps.google.com/maps?q=J.%20Berlanga%202424%2C%20Quinta%20Valle%2C%2025060%20Saltillo%2C%20Coahuila&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Ubicación de Fonda Doña Carmen"
-                ></iframe>
-          </div>
+        <div className="map-placeholder">
+          <iframe
+            src="https://maps.google.com/maps?q=J.%20Berlanga%202424%2C%20Quinta%20Valle%2C%2025060%20Saltillo%2C%20Coahuila&output=embed"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Ubicación de Fonda Doña Carmen"
+          ></iframe>
+        </div>
       </section>
 
-      {/* Footer / segunda navegación */}
+          
       <footer className="footer">
         <div className="footer-top">
           <Link href="#inicio" className="footer-logo">
@@ -334,9 +355,7 @@ export default function Home() {
             </div>
           </Link>
 
-          <p>
-            Donde su sazón da alegría.
-          </p>
+          <p>Donde su sazón da alegría.</p>
 
           <nav className="footer-nav">
             <Link href="#inicio">Inicio</Link>

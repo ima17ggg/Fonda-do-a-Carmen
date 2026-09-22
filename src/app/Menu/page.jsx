@@ -1,5 +1,7 @@
+"use client";
 
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { useState } from "react";
 import Image from "next/image";
 import cocina from "../images/cocina.jpg";
 import chicharron from "../images/chicharron.jpg";
@@ -8,6 +10,7 @@ import des_roja from "../images/des_roja.jpg"
 import des_verde from "../images/desheb_verde.webp"
 import flautas from "../images/flautas.jpg"
 import burro from "../images/burrito.webp"
+import Link from "next/link";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -134,6 +137,8 @@ function DetailItem({ children }) {
 }
 
 export default function MenuPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main
       className={`${playfair.variable} ${jakarta.variable} min-h-screen bg-[#FEF8F4] text-[#1D1B19]`}
@@ -144,10 +149,7 @@ export default function MenuPage() {
   <div className="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-4 md:px-6 lg:px-12">
 
     {/* LOGO */}
-    <a
-      href="./"
-      className="flex items-center gap-3"
-    >
+    <Link href="./" className="flex items-center gap-3">
       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F3ECE2] text-xl">
         🍲
       </span>
@@ -161,41 +163,95 @@ export default function MenuPage() {
           Doña Carmen
         </span>
       </div>
-    </a>
+    </Link>
 
-    {/* MENU */}
+    {/* MENÚ DESKTOP */}
     <nav className="hidden items-center gap-8 text-xs font-semibold uppercase tracking-[0.08em] text-[#5B403D] md:flex">
 
-      <a
+      <Link
         href="./"
         className="transition hover:text-[#B91C1C]"
       >
         Inicio
-      </a>
+      </Link>
 
-      <a
-        href="#menu"
-        className="text-[#B91C1C]"
+      <Link
+        href="./Menu"
+        className="transition hover:text-[#B91C1C]"
       >
         Menú
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="./QS"
         className="transition hover:text-[#B91C1C]"
       >
         Quiénes somos
-      </a>
+      </Link>
 
-      <a
+      <Link
         href="./#ubicacion"
         className="transition hover:text-[#B91C1C]"
       >
         Ubicación
-      </a>
+      </Link>
 
     </nav>
+
+    {/* BOTÓN MÓVIL */}
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E8DFD3] text-2xl text-[#93000B] md:hidden"
+      aria-label="Abrir menú"
+    >
+      {menuOpen ? "✕" : "☰"}
+    </button>
+
   </div>
+
+  {/* MENÚ MÓVIL */}
+  {menuOpen && (
+    <nav className="border-t border-[#E8DFD3] bg-[#FEF8F4] px-4 py-4 md:hidden">
+
+      <div className="flex flex-col gap-1">
+
+        <Link
+          href="./"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] transition hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+        >
+          Inicio
+        </Link>
+
+        <Link
+          href="./Menu"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] transition hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+        >
+          Menú
+        </Link>
+
+        <Link
+          href="./QS"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] transition hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+        >
+          Quiénes somos
+        </Link>
+
+        <Link
+          href="./#ubicacion"
+          onClick={() => setMenuOpen(false)}
+          className="rounded-lg px-4 py-3 text-sm font-semibold uppercase tracking-wide text-[#5B403D] transition hover:bg-[#F3ECE2] hover:text-[#B91C1C]"
+        >
+          Ubicación
+        </Link>
+
+      </div>
+
+    </nav>
+  )}
+
 </header>
 
       {/* HERO */}
