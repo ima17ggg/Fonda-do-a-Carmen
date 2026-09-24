@@ -8,8 +8,9 @@ import chicharron from "../images/chicharron.jpg";
 import picadillo from "../images/gorditas-de-maiz-rellenas.jpg"
 import des_roja from "../images/des_roja.jpg"
 import des_verde from "../images/desheb_verde.webp"
-import flautas from "../images/flautas.jpg"
-import burro from "../images/burrito.webp"
+import flautas from "../images/flautas3.jpg"
+import burro from "../images/burrrito3.jpeg"
+import gordita from "../images/Gordita.jpg"
 import Link from "next/link";
 
 const playfair = Playfair_Display({
@@ -71,7 +72,7 @@ const platillos = [
       "Salsa verde o roja",
     ],
     imagenIzquierda: true,
-    imagen: picadillo
+    imagen: gordita
   },
   {
     numero: "02",
@@ -575,69 +576,6 @@ export default function MenuPage() {
           </p>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-[#1D1B19] text-[#F6F0EC]">
-        <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 md:grid-cols-2 md:px-6 lg:grid-cols-4 lg:px-12">
-          <div>
-            <h3 className="font-[family-name:var(--font-display)] text-xl italic">
-              Fonda Doña Carmen
-            </h3>
-
-            <p className="mt-3 text-sm leading-6 text-[#C9BFBB]">
-              Cocina mexicana tradicional, hecha en casa y servida con cariño.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.08em]">
-              Ubicación
-            </p>
-
-            <p className="mt-3 text-sm leading-6 text-[#C9BFBB]">
-              Agrega aquí la dirección de la fonda.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.08em]">
-              Horarios
-            </p>
-
-            <p className="mt-3 text-sm text-[#C9BFBB]">
-              Lunes – Sábado
-            </p>
-
-            <p className="text-sm text-[#C9BFBB]">
-              13:00 – 22:00
-            </p>
-
-            <p className="mt-1 text-sm text-[#C9BFBB]">
-              Domingo · 12:00 – 19:00
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.08em]">
-              Contacto
-            </p>
-
-            <p className="mt-3 text-sm text-[#C9BFBB]">
-              +52 (000) 0000-0000
-            </p>
-
-            <p className="text-sm text-[#C9BFBB]">
-              contacto@fondadonacarmen.mx
-            </p>
-          </div>
-        </div>
-
-        <div className="border-t border-white/10">
-          <div className="mx-auto max-w-[1280px] px-4 py-5 text-center text-[10px] font-semibold uppercase tracking-[0.08em] text-[#8F8581] md:px-6 lg:px-12">
-            © 2026 Fonda Doña Carmen · Todos los derechos reservados
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

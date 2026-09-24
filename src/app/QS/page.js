@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import cocina from "../images/cocina.jpg";
-import picadillo from "../images/gorditas-de-maiz-rellenas.jpg";
-import flautas from "../images/flautas.jpg";
-import burro from "../images/burrito.webp";
+import picadillo from "../images/Gordita.jpg";
+import flautas from "../images/flautas3.jpg";
+import burro from "../images/burrrito3.jpeg";
 import Link from "next/link";
 
 export default function QuienesSomos() {

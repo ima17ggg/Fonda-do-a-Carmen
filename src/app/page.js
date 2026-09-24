@@ -3,16 +3,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import promo1 from "./images/promo1.png";
-import promo2 from "./images/promo2.png";
-import promo3 from "./images/promo3.png";
+import promo1 from "./images/promoCOCA.png";
+import promo2 from "./images/promoB.png";
+import promo3 from "./images/promoC.png";
 import exper from "./images/exp.png";
 
 const especialidades = [
   {
-    nombre: "3 Gordas de maiz con una cocacola de 600ml",
+    nombre: "3 Gordas de maíz con una Coca-Cola de 600ml",
     descripcion:
-      "Deliciosas gorditas hechas al momento, con el auténtico sabor de casa, acompañadas de una cocacola bien fria de 600ml.",
+      "Deliciosas gorditas hechas al momento, con el auténtico sabor de casa, acompañadas de una Coca-Cola bien fría de 600ml.",
     precio: "60",
     imagen: promo1,
     etiqueta: "Favorito de la casa",
@@ -26,9 +26,9 @@ const especialidades = [
     etiqueta: "Sabor tradicional",
   },
   {
-    nombre: "1 Burroo con 2 gorditas de maiz y una cocacola de 600ml",
+    nombre: "1 Burro con 2 gorditas de maíz y una Coca-Cola de 600ml",
     descripcion:
-      "Un delicioso burroo acompañado de 2 gorditas de maiz y una cocacola bien fria de 600ml.",
+      "Un delicioso burro acompañado de 2 gorditas de maíz y una Coca-Cola bien fría de 600ml.",
     precio: "150",
     imagen: promo3,
     etiqueta: "Mejor opción",
@@ -204,11 +204,11 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <span className="section-label">✦ El sabor de la casa</span>
-            <h2>Promociones del dia</h2>
+            <h2>Promociones del día</h2>
             <p>Descubre nuestras promociones especiales del día.</p>
           </div>
 
-          <Link href="#menu-completo" className="text-link">
+          <Link href="./Menu" className="text-link">
             Ver nuestro menú <span>→</span>
           </Link>
         </div>
@@ -330,12 +330,12 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="map-placeholder">
+        <div className="w-full h-[400px] md:h-auto md:min-h-[100%]">
           <iframe
             src="https://maps.google.com/maps?q=J.%20Berlanga%202424%2C%20Quinta%20Valle%2C%2025060%20Saltillo%2C%20Coahuila&output=embed"
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            style={{ border: 0, pointerEvents: "none" }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
